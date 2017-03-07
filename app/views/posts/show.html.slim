@@ -8,3 +8,10 @@
     |  ago
   p.body
     = @post.body
+  .buttons
+    button.button
+      = link_to 'Edit', edit_post_path(@post)
+    button.button
+      = link_to 'Trash It', post_path(@post), method: :delete, data: { confirm: 'are you Fuk\'n sure?'}
+
+
