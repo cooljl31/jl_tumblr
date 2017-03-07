@@ -8,5 +8,6 @@
     p.comment_title
       = time_ago_in_words(comment.created_at)
       |  ago
-  p
-    = link_to 'Trash it!', [comment.post, comment], method: :delete, class: 'button', data: { confirm: 'You want Trash me?'}
+  - if user_signed_in?
+    p
+      = link_to 'Trash it!', [comment.post, comment], method: :delete, class: 'button', data: { confirm: 'You want Trash me?'}
