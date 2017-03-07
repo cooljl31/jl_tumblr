@@ -14,4 +14,10 @@
     button.button
       = link_to 'Trash It', post_path(@post), method: :delete, data: { confirm: 'are you Fuk\'n sure?'}
 
-
+  #comments
+    h2
+      = @post.comments.count
+      |  comments
+    = render @post.comments
+    h3 Join Discution:
+    = render 'comments/form'
