@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title Tumblr
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Raleway:400,700'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = favicon_link_tag 'favicon.jpg'
+  body
+    #sidebar
+      ul
+        li.category
+          = link_to 'Tumblr', root_path
+        li
+          = link_to 'Posts', root_path
+        li About
+      p.sign_in User Login
+    #main_content
+      #header
+        p Post Feed
+        .buttons
+          button.button
+            = link_to 'Make Post', new_post_path
+          button.button Log Out
+
+      - flash.each do |msg, name|
+        = content_tag :section, msg, :id => "flash_#{name}", class: 'flash'
+      = yield
