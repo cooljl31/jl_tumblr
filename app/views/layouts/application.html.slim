@@ -14,11 +14,17 @@ html
           = link_to 'Tumblr', root_path
         li
           = link_to 'Posts', root_path
-        li About
+        li
+          = link_to 'About', about_path
       p.sign_in User Login
     #main_content
       #header
-        p Post Feed
+        - if current_page?(root_path)
+          p Post Feed
+        - elsif current_page?(about_path)
+          p My Site
+        - else
+          = link_to 'Back to Post Feed', root_path
         .buttons
           button.button
             = link_to 'Make Post', new_post_path
