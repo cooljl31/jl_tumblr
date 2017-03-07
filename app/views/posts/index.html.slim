@@ -2,5 +2,7 @@
   .post_wrapper
     h2.title
       = link_to post.title, post
+    p.body
+      = truncate(post.body, length:200)
     p.date
       = time_ago_in_words(post.created_at)
