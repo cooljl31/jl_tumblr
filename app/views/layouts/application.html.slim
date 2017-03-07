@@ -16,7 +16,9 @@ html
           = link_to 'Posts', root_path
         li
           = link_to 'About', about_path
-      p.sign_in User Login
+      - unless user_signed_in?
+        p.sign_in
+          = link_to 'User Login', new_user_session_path
     #main_content
       #header
         - if current_page?(root_path)
@@ -25,11 +27,13 @@ html
           p My Site
         - else
           = link_to 'Back to Post Feed', root_path
-        .buttons
-          button.button
-            = link_to 'Make Post', new_post_path
-          button.button Log Out
+        - if user_signed_in?
+          .buttons
+            button.button
+              = link_to 'Make Post', new_post_path
+            button.button
+              = link_to 'Log Out', destroy_user_session_path, method: :delete
 
-      - flash.each do |msg, name|
+      - flash.each do |name, msg|
         = content_tag :section, msg, :id => "flash_#{name}", class: 'flash'
       = yield
