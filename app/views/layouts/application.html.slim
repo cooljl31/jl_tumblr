@@ -10,15 +10,13 @@ html
   body
     #sidebar
       ul
-        li.category
-          = link_to 'Tumblr', root_path
-        li
-          = link_to 'Posts', root_path
-        li
-          = link_to 'About', about_path
-      - unless user_signed_in?
-        p.sign_in
-          = link_to 'User Login', new_user_session_path
+        li.category= link_to 'Tumblr', root_path
+        li= link_to 'Posts', root_path
+        li= link_to 'About', about_path
+    
+      - if !user_signed_in?
+      ul
+        li= link_to 'User Login', new_user_session_path
     #main_content
       #header
         - if current_page?(root_path)

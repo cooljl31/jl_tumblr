@@ -7,6 +7,7 @@
       br
       = f.email_field :email, autofocus: true
     .field
+      br
       = f.label :password
       br
       = f.password_field :password, autocomplete: "off"
@@ -17,4 +18,5 @@
     .actions
       br
       = f.submit "Log in"
+      br
   = render "devise/shared/links"
