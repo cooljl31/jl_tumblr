@@ -95,7 +95,8 @@ GEM
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
-    puma (3.7.1)
+    puma (5.6.8)
+      nio4r (~> 2.0)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -185,7 +186,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   mongoid
-  puma (~> 3.0)
+  puma (~> 5.6, >= 5.6.8)
   rails (~> 5.0.2)
   sass-rails (~> 5.0)
   slim
@@ -198,4 +199,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.14.6
+   1.17.3
